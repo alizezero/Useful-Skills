@@ -1,0 +1,4 @@
+interface:
+  display_name: "Research From Zero"
+  short_description: "Turn project folders into manuscripts"
+  default_prompt: "Use $research-from-zero to turn this project folder into a manuscript plan and draft."
