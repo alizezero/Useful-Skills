@@ -1,4 +1,0 @@
-interface:
-  display_name: "Research From Zero"
-  short_description: "Mine novelty and build main/SI evidence"
-  default_prompt: "Use $research-from-zero to inspect this project, mine defensible innovation points, fill figure/table evidence gaps from existing data where possible, split main text versus SI support, and build a manuscript plan and draft."
