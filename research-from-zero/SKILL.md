@@ -1,6 +1,6 @@
 ---
 name: research-from-zero
-description: Full-process research manuscript coach for turning an existing engineering or research project folder into a paper. Use when the user gives a project directory, code/data/results/figures/notes, or says to write a paper/manuscript/journal article from project materials; also use for innovation mining, novelty planning, manuscript diagnosis, missing-evidence detection, data-backed figure/table generation, main-text/SI planning, supplementary information rewriting, terminology cleanup, claim-evidence-figure mapping, report-to-paper rewriting, section drafting, and controlled GPT/DeepResearch prompts.
+description: Full-process research manuscript coach for turning an existing engineering or research project folder into a paper. Use when the user gives a project directory, code/data/results/figures/notes, or says to write a paper/manuscript/journal article from project materials; also use for innovation mining, novelty planning, manuscript diagnosis, missing-evidence detection, data-backed figure/table generation, main-text/SI planning, supplementary information rewriting, terminology cleanup, claim-evidence-figure mapping, report-to-paper rewriting, advisor/reviewer feedback triage, final submission packaging, release repository management, and controlled GPT/DeepResearch prompts.
 ---
 
 # Research From Zero
@@ -24,6 +24,7 @@ Turn an existing project folder into a manuscript. This skill is not a copy edit
 1. **Project Intake**
    - Inspect the provided folder and summarize what was built, what artifacts exist, and what evidence is already available.
    - Read `references/project-intake.md` when the user gives a folder or a scattered project.
+   - When resuming a long manuscript project, identify the latest main text, SI, feedback notes, figure media, source-data folders, and code/release repository before editing.
 
 2. **Manuscript Diagnosis**
    - Identify the paper type, target journal, audience, core claim, available evidence, missing evidence, and boundaries.
@@ -60,21 +61,37 @@ Turn an existing project folder into a manuscript. This skill is not a copy edit
    - Convert the project into a paper outline. Decide what each section is responsible for before writing prose.
    - Read `references/section-playbooks.md`.
 
-9. **Final Main/SI and Evidence Consistency Pass**
-   - Revisit `references/supplementary-information.md` after terminology cleanup, claim-evidence mapping, and section architecture.
-   - Verify main-text/SI cross-references, numbering, terminology, SI backup for main claims, source-data cards, manuscript-number traceability, and whether any evidence should move between main text and SI.
+9. **Feedback-to-Revision Workflow**
+   - Use this when the user provides advisor notes, reviewer comments, dated feedback files, or informal instructions after a draft already exists.
+   - Read `references/feedback-to-revision-workflow.md`.
+   - Classify each item before editing: prose-only, figure redraw, table update, missing experiment, SI synchronization, release repository update, or discussion-only exploratory idea.
 
-10. **Draft or Rewrite Sections**
+10. **Final Main/SI and Evidence Consistency Pass**
+   - Revisit `references/supplementary-information.md` after terminology cleanup, claim-evidence mapping, section architecture, and any feedback-driven figure/table changes.
+   - Read `references/manuscript-si-consistency-audit.md` when the task asks for synchronization, final checking, source-data alignment, or "latest version" confirmation.
+   - Verify main-text/SI cross-references, numbering, terminology, SI backup for main claims, source-data cards, manuscript-number traceability, figure captions, and whether any evidence should move between main text and SI.
+
+11. **Release Repository and Reproducibility Package**
+   - Use this when the user asks to upload/update GitHub, prepare a code/data repository linked from the manuscript or SI, clean program structure, or verify that a cloned project can run.
+   - Read `references/release-repository-management.md`.
+   - Keep the public repository aligned with the manuscript evidence chain: active source data, plotting scripts, frozen metrics, setup commands, and clean paths should reproduce the reported figures/tables without relying on private workstation paths.
+
+12. **Draft or Rewrite Sections**
    - Draft from claim and evidence outward. Do not begin with a list of experiments.
    - For report-like text, read `references/report-to-paper-rewrites.md`.
 
-11. **External Prompt Generation**
+13. **Final Submission Package**
+   - Use this when the user asks for a final manuscript package, submission-ready files, final version export, or pre-submission cleanup.
+   - Read `references/final-submission-package.md`.
+   - Confirm which files are the deliverables, verify figure/media/source-data availability, and keep draft/history files out of the final package unless they serve provenance.
+
+14. **External Prompt Generation**
    - When literature search, English polishing, DeepResearch, or external GPT rewriting is useful, generate controlled prompts that preserve claims, numbers, boundaries, and terminology.
    - Read `references/external-prompts.md`.
 
-12. **Output Packing**
+15. **Output Packing**
    - Keep source documents, figure paths, evidence tables, and rewrite notes traceable.
-   - Default deliverables: manuscript Markdown, innovation table, main-text/SI split plan, SI Evidence Pack plan, final main/SI consistency audit, SI outline or rewrite notes, terminology ledger, claim-evidence-figure map, figure/table source-data paths, manuscript-number traceability table, figure-generation notes, missing-evidence list, and external prompts.
+   - Default deliverables: manuscript Markdown, innovation table, main-text/SI split plan, SI Evidence Pack plan, feedback-to-revision table, final main/SI consistency audit, SI outline or rewrite notes, terminology ledger, claim-evidence-figure map, figure/table source-data paths, manuscript-number traceability table, figure-generation notes, release repository audit, final submission package checklist, missing-evidence list, and external prompts.
 
 ## First Response Pattern
 
@@ -125,10 +142,14 @@ When the user says "write this project into a paper" and gives a folder:
 - `references/innovation-mining.md`: how to mine defensible innovation candidates from existing project evidence.
 - `references/figure-data-generation.md`: how to turn claim gaps into data-backed figures/tables without fabricating evidence.
 - `references/supplementary-information.md`: how to plan and rewrite SI as traceable support for the main text.
+- `references/feedback-to-revision-workflow.md`: how to classify advisor/reviewer feedback into prose, figures, tables, experiments, SI, repository updates, or discussion-only items before editing.
+- `references/manuscript-si-consistency-audit.md`: final consistency checks across main text, SI, figures, tables, source data, terminology, and version state.
 - `references/terminology-cleanup.md`: how to turn engineering names into publication terms.
 - `references/evidence-chain.md`: claim-evidence-figure mapping and figure/SI decisions.
 - `references/section-playbooks.md`: section jobs from title to conclusion.
 - `references/report-to-paper-rewrites.md`: templates for converting report prose into manuscript prose.
+- `references/release-repository-management.md`: GitHub/code-data release repository setup, cleanup, validation, push/update workflow, and clone-run verification.
+- `references/final-submission-package.md`: final manuscript/SI/media/source-data package checks before journal submission or handoff.
 - `references/external-prompts.md`: controlled prompts for GPT/DeepResearch/language polish.
 - `scripts/scan_manuscript_terms.py`: flags likely internal names and report-like phrases in manuscripts.
 - `scripts/inventory_project_evidence.py`: inventories candidate evidence files and lightweight metadata for figure/table planning.

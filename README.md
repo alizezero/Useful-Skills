@@ -19,6 +19,9 @@ It helps with:
 - building a claim-evidence-figure map before drafting Results and Discussion
 - splitting evidence between the main text and Supplementary Information
 - running a final main-text/SI consistency pass for numbering, cross-references, terminology, and evidence support
+- triaging advisor/reviewer feedback into prose edits, figure redraws, table updates, missing experiments, SI synchronization, release-repository updates, or discussion-only exploratory ideas
+- preparing and auditing a GitHub/code-data release repository so a fresh clone can reproduce the manuscript-linked outputs
+- assembling a final submission package with the current main text, SI, figures, source data, repository link, and required handoff notes
 - designing the manuscript outline from project artifacts
 - converting report-style writing into manuscript-style writing
 - generating controlled prompts for GPT, DeepResearch, reviewer-style audit, or language polishing tools
@@ -32,7 +35,7 @@ At the moment, this repository contains one skill:
 
 | Skill | Purpose |
 |---|---|
-| `research-from-zero` | Turn an existing research or engineering project folder into a manuscript plan, innovation table, evidence map, figure/table plan, SI structure, and draft paper. |
+| `research-from-zero` | Turn an existing research or engineering project folder into a manuscript plan, innovation table, evidence map, figure/table plan, SI structure, draft paper, release repository audit, and final submission package checklist. |
 
 ## Included Resources
 
@@ -47,9 +50,13 @@ research-from-zero/
     evidence-chain.md
     figure-data-generation.md
     supplementary-information.md
+    feedback-to-revision-workflow.md
+    manuscript-si-consistency-audit.md
     terminology-cleanup.md
     section-playbooks.md
     report-to-paper-rewrites.md
+    release-repository-management.md
+    final-submission-package.md
     external-prompts.md
   scripts/
     inventory_project_evidence.py
@@ -70,6 +77,13 @@ python scripts/inventory_project_evidence.py /path/to/project --limit 200
 python scripts/scan_manuscript_terms.py /path/to/manuscript-or-folder
 ```
 
+## What This Version Adds
+
+- Feedback items are handled through a register before editing, so exploratory ideas are not accidentally written into the paper as settled results.
+- Main text, SI, captions, figures, source data, and repository files are checked as one evidence system before final handoff.
+- GitHub release repositories are treated as part of the manuscript deliverable: public files should be clean, traceable, runnable after clone, and aligned with the reported figures/tables.
+- Final package preparation now checks current-version files, figure/media availability, source-data coverage, code/data links, and missing declarations.
+
 ## Evidence Rules
 
 - Do not invent results, mechanisms, references, baselines, or novelty.
@@ -78,6 +92,7 @@ python scripts/scan_manuscript_terms.py /path/to/manuscript-or-folder
 - Mark missing evidence explicitly instead of writing around it.
 - Preserve exact numeric values unless recomputing from documented source data.
 - Treat Supplementary Information as part of the evidence system, not as a dumping ground for leftovers.
+- Keep final claims, figures, source data, SI support, and release-repository contents aligned before declaring a manuscript package ready.
 
 ## Usage
 
@@ -86,7 +101,7 @@ Copy the skill folder into your Codex skills directory, then restart Codex so th
 Invoke it with:
 
 ```text
-Use $research-from-zero to inspect this project, mine defensible innovation points, fill figure/table evidence gaps from existing data where possible, split main text versus SI support, and build a manuscript plan and draft.
+Use $research-from-zero to inspect this project, mine defensible innovation points, fill figure/table evidence gaps from existing data where possible, split main text versus SI support, audit manuscript/SI/source-data consistency, prepare the release repository, and build a manuscript plan and draft.
 ```
 
 ## Upload Notes
